@@ -1,0 +1,125 @@
+\documentclass[12pt,a4paper]{article}
+
+% Suporte para a língua portuguesa
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+
+% Melhorias de tipografia
+\usepackage{microtype}
+
+% Cores personalizadas
+\usepackage{xcolor}
+\definecolor{darkblue}{RGB}{25,25,112}
+
+% Para cabeçalhos bonitos
+\usepackage{fancyhdr}
+
+% Controlar layout da página
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    total={170mm,257mm},
+    left=20mm,
+    top=20mm,
+}
+
+% Para inserção e manipulação de imagens
+\usepackage{graphicx}
+\graphicspath{{imagens/}} % Define o diretório padrão das imagens
+\usepackage{float} % Para melhor controle de posicionamento
+
+% Para títulos de seções coloridos e personalizados
+\usepackage{titlesec}
+\titleformat{\section}
+{\color{darkblue}\normalfont\Large\bfseries}
+{\color{darkblue}\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\color{darkblue}\normalfont\large\bfseries}
+{\color{darkblue}\thesubsection}{1em}{}
+
+% Para links e referências
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+% Permite quebras de linha em URLs em qualquer lugar, melhorando a quebra de linhas longas
+\usepackage{xurl}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\textbf{Lógica Reconfigurável/Tutorial 1}}
+\lhead{\textbf{\leftmark}}
+\cfoot{\thepage}
+
+\title{\textbf{Criando e Simulando Circuitos Digitais no Quartus}}
+\author{Prof. Felipe W. D. Pfrimer}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Introdução}
+
+O IntelFPGA Quartus Prime representa uma plataforma abrangente de desenvolvimento para Dispositivos Lógicos Programáveis (PLDs), oferecida pela IntelFPGA. Este Ambiente de Desenvolvimento Integrado (IDE) capacita os desenvolvedores na criação, análise, e síntese de sistemas digitais, empregando Linguagens de Descrição de Hardware (HDLs) ou diagramas esquemáticos. A versão Lite do Quartus Prime, especificamente a 18.1, está disponível gratuitamente e pode ser obtida diretamente através do site da Intel, usando a macro LaTeX para URLs como segue: \url{https://www.intel.com.br/content/www/br/pt/products/details/fpga/development-tools/quartus-prime/resource.html}.
+
+Este tutorial é direcionado a fornecer ao leitor uma introdução prática ao desenvolvimento e simulação de sistemas digitais utilizando diagramas esquemáticos no Quartus Prime Lite 18.1. Embora nosso foco esteja na versão 18.1, é importante notar que os princípios e procedimentos aqui descritos são amplamente aplicáveis a outras versões do software, proporcionando uma base sólida que transcende variações específicas de versão.
+
+\section{Instalação do Quartus Prime Lite 18.1}
+
+Este guia passo a passo destina-se a auxiliar na instalação do Quartus Prime Lite 18.1 em sistemas operacionais Windows 10 ou 11.
+
+\subsection{Download do Software}
+
+\begin{enumerate}
+    \item Acesse a página oficial de downloads da Intel para o Quartus Prime Lite 18.1 através do link: \url{https://www.intel.com/content/www/us/en/software-kit/795188/intel-quartus-prime-lite-edition-design-software-version-18-1-for-windows.html}.
+    \item Na página, procure pela seção de downloads do Quartus Prime Lite Edition.
+    \item Selecione a versão apropriada (18.1) para Windows e clique no botão de download, na aba de \textit{Multiple Download}.
+    \item Pode ser necessário criar uma conta Intel ou fazer login com uma conta existente para prosseguir com o download.
+\end{enumerate}
+
+\subsection{Instalação do Software}
+
+\begin{enumerate}
+    \item Uma vez concluído o download, localize o arquivo baixado e execute-o com um duplo clique.
+    \item Se for exibida uma janela pedindo permissão para que o aplicativo faça alterações no seu dispositivo, clique em "Sim".
+    \item Siga as instruções apresentadas pelo assistente de instalação. Aceite os termos de licença e selecione o diretório de instalação conforme desejado. De preferência, deixe o diretório proposto.
+    \item Durante a instalação, você pode selecionar os componentes específicos do Quartus que deseja instalar (dispositivos). Para uma instalação padrão, é recomendável deixar as opções pré-selecionadas. Tenha certeza de manter a família MAX10 e o modelsim IntelFPGA Edition ou Altera Edition. O modelsim padrão é um aplicativo que exige a compra de uma licença.
+    \item Após configurar suas preferências, prossiga com a instalação e aguarde até que o processo seja concluído. Isso pode demorar bastante, recomenda-se café \includegraphics[height=1em]{latte-art.png}.
+\end{enumerate}
+
+\subsection{Inicialização do Programa}
+
+\begin{enumerate}
+    \item Após a conclusão da instalação, você pode iniciar o Quartus Prime Lite 18.1 através do menu Iniciar do Windows, procurando por "Quartus Prime Lite" ou através do atalho criado na área de trabalho, se disponível.
+    \item Na primeira execução, pode ser necessário configurar algumas preferências iniciais ou realizar o registro do software, dependendo das exigências do programa.
+    \item Com o Quartus Prime Lite aberto, você está agora pronto para começar a criar e simular seus projetos de sistemas digitais.
+\end{enumerate}
+
+Este guia deve ajudar você a instalar e iniciar o Quartus Prime Lite 18.1 em sua máquina Windows com facilidade. Para qualquer suporte adicional ou questões técnicas, referencie a documentação oficial do Quartus ou os fóruns de suporte da Intel.
+
+
+\subsection{Sobre LaTeX}
+Texto sobre LaTeX e como ele é útil.
+
+\section{Inserção de Imagens}
+Para inserir uma imagem, você pode usar o seguinte comando:
+
+\begin{figure}[H]
+    \centering
+    %\includegraphics[width=0.8\textwidth]{nome_da_imagem.extensão}
+    \caption{Descrição da imagem.}
+    \label{fig:imagem1}
+\end{figure}
+
+\section{Conclusão}
+Texto de conclusão da sua apostila.
+
+\end{document}

@@ -1,0 +1,9 @@
+\babel@toc {brazil}{}\relax 
+\contentsline {section}{\numberline {1}Introdução}{2}{section.1}%
+\contentsline {section}{\numberline {2}Instalação do Quartus Prime Lite 18.1}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Download do Software}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Instalação do Software}{2}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Inicialização do Programa}{3}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Sobre LaTeX}{3}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Inserção de Imagens}{3}{section.3}%
+\contentsline {section}{\numberline {4}Conclusão}{3}{section.4}%
