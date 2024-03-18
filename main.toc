@@ -1,9 +1,14 @@
 \babel@toc {brazil}{}\relax 
 \contentsline {section}{\numberline {1}Introdução}{2}{section.1}%
-\contentsline {section}{\numberline {2}Instalação do Quartus Prime Lite 18.1}{2}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Download do Software}{2}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Instalação do Software}{2}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Inicialização do Programa}{3}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Sobre LaTeX}{3}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Inserção de Imagens}{3}{section.3}%
-\contentsline {section}{\numberline {4}Conclusão}{3}{section.4}%
+\contentsline {section}{\numberline {2}Objetivo do Tutorial}{2}{section.2}%
+\contentsline {section}{\numberline {3}Conceitos importantes}{2}{section.3}%
+\contentsline {subsection}{\numberline {3.1}O que é Simulação Funcional?}{2}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}O Quartus Prime}{2}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Somadores \textit {carry ripple}}{3}{section.4}%
+\contentsline {section}{\numberline {5}Instalação}{3}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Download do Software}{4}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Instalação do Software}{4}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Inicialização do Programa}{4}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Criando um novo projeto}{5}{section.6}%
+\contentsline {section}{\numberline {7}Primeiro esquemático}{7}{section.7}%
+\contentsline {section}{\numberline {8}Criando um bloco lógico}{10}{section.8}%
