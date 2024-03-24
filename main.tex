@@ -63,17 +63,35 @@
 
 \usepackage{caption} % para legendas de figura
 
+\tcbuselibrary{skins} % Usar skins do tcolorbox
+
 % Comandos
 \newcommand{\DonwloadUrl}{\url{https://www.intel.com.br/content/www/br/pt/products/details/fpga/development-tools/quartus-prime/resource.html}}
 \newcommand{\Version}{18.1}
 
-\newcommand{\Atention}[1]{
-    \begin{tcolorbox}[colback=red!5!white,colframe=red!75!black]
-    \begin{center}
-    \faExclamationTriangle{}\\#1
-    \end{center}
+% \newcommand{\Attention}[1]{
+%     \begin{tcolorbox}[colback=red!5!white,colframe=red!75!black]
+%     \begin{center}
+%     \faExclamationTriangle{}\\#1
+%     \end{center}
+%     \end{tcolorbox}
+% }
+
+\newcommand{\Attention}[1]{
+    \begin{tcolorbox}[colback=red!5!white, colframe=red!75!black]
+        \noindent
+        \begin{minipage}[c]{1cm}% Largura para a imagem
+            \includegraphics[width=\linewidth]{figs/attention.png}
+        \end{minipage}%
+        \hfill% Espaço entre a imagem e o texto
+        \begin{minipage}[c]{\dimexpr\linewidth-1cm-2mm}% Largura para o texto, ajustando o espaço
+            \begin{center}
+                #1    
+            \end{center}            
+        \end{minipage}
     \end{tcolorbox}
 }
+
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -146,7 +164,7 @@ Este guia passo a passo destina-se a auxiliar na instalação do Quartus Prime L
     \item Acesse a página oficial de downloads da Intel para o Quartus Prime Lite \Version{} por meio do link: \DonwloadUrl;
     \item Na página, procure pela seção de downloads do \textbf{Quartus Prime Lite} Edition;
     
-    \Atention{Certifique-se de escolher a versão Lite \Version.}
+    \Attention{Certifique-se de escolher a versão Lite \Version.}
 
     \item Selecione a versão apropriada para Windows e clique no grande botão azul botão de download, na aba de \textit{Multiple Download}, para baixar todos os arquivos necessários;
     \item Aguarde baixar o arquivo de extensão .tar;
@@ -162,7 +180,7 @@ Este guia passo a passo destina-se a auxiliar na instalação do Quartus Prime L
     \item Siga as instruções apresentadas pelo assistente de instalação. Aceite os termos de licença e selecione o diretório de instalação conforme desejado (de preferência, deixe o diretório proposto);
     \item Durante a instalação, você pode selecionar os componentes específicos do Quartus que deseja instalar (dispositivos). Para uma instalação padrão, é recomendável deixar as opções pré-selecionadas;
     
-    \Atention{Tenha certeza de manter a família MAX10 e o modelsim IntelFPGA Edition ou Altera Edition. O modelsim padrão é um aplicativo que exige a compra de uma licença.}
+    \Attention{Tenha certeza de manter a família MAX10 e o modelsim IntelFPGA Edition ou Altera Edition. O modelsim padrão é um aplicativo que exige a compra de uma licença.}
 
     \item Após configurar suas preferências, prossiga com a instalação e aguarde até que o processo seja concluído. %Isso pode demorar bastante, recomenda-se café \includegraphics[height=1em]{latte-art.png}.
 \end{enumerate}
@@ -182,7 +200,7 @@ Este guia deve ajudar você a instalar e iniciar o Quartus Prime Lite \Version{}
 
 A \autoref{fig:StartSc} ilustra a tela inicial do Quartus Prime Lite \Version.
 
-\Atention{É crucial seguir os próximos passos exatamente como descritos e prestar atenção especial aos nomes dos arquivos mencionados. A precisão é essencial para o sucesso da configuração.}
+\Attention{É crucial seguir os próximos passos exatamente como descritos e prestar atenção especial aos nomes dos arquivos mencionados. A precisão é essencial para o sucesso da configuração.}
 
 \begin{figure}[htbp]
     \centering
@@ -353,7 +371,7 @@ Acrescente as outras portas necessárias para o circuito somador da mesma maneir
 
 Para finalizar o circuito somador completo, resta fazer as ligações entre os terminais conforme ilustrado na Figura~\ref{fig:somadorCompleto}. Para isso, aproxime o cursor do mouse à extremidade de um dos terminais e observe que o símbolo do mouse será substituído por uma ``mira''. Quando isso acontecer, clique, segure e arraste o mouse até o outro ponto de conexão. Alternativamente, clique \textbf{Orthogonal node toll} (\raisebox{-0.25\height}{\includegraphics[height=12pt]{./figs/conect.png}}) para inserir linhas de conexão. Após realizar as ligações, seu circuito será semelhante à Figura~\ref{fig:somadorFeito}. Salve o esquemático com o nome \texttt{somador\_completo.bdf}, onde \texttt{bdf} é a extensão do arquivo (adicionada automaticamente). Não feche este esquemático.
 
-\Atention{Certifique-se de salvar o arquivo do somador completo com o nome \texttt{somador\_completo.bdf}. Isso é importante para os próximos passos.}
+\Attention{Certifique-se de salvar o arquivo do somador completo com o nome \texttt{somador\_completo.bdf}. Isso é importante para os próximos passos.}
 
 \begin{figure}[htbp!]
     \centering
@@ -364,21 +382,53 @@ Para finalizar o circuito somador completo, resta fazer as ligações entre os t
 
 \section{Criando um bloco lógico}
 
-Para reaproveitar um circuito em diferentes esquemáticos, é necessário criar um novo bloco lógico. Este processo inclui a criação do símbolo lógico para o circuito que deseja-se reutilizar. Como exemplo, na construção de um somador \textit{carry ripple} de 4 bits, o somador completo precisa ser replicado quatro vezes.
-
-A construção de um somador de 4 bits envolve a ligação em série de quatro somadores completos. A Figura~\ref{fig:somadorCompleto} mostra essa configuração, com as entradas $X3$, $X2$, $X1$, e $X0$ representando uma parcela da soma, e $Y3$, $Y2$, $Y1$, e $Y0$ a outra parcela. As saídas $S3$, $S2$, $S1$, e $S0$ apresentam o resultado da soma, enquanto \texttt{C\_out} é o \texttt{carry} de saída, que indica se o total excede o valor representável por quatro bits (``1111''). O \texttt{carry} de entrada é mantido em nível lógico baixo.
+Para reaproveitar um circuito em diferentes esquemáticos, é necessário criar um novo bloco lógico. Este processo inclui a criação do símbolo lógico para o circuito que deseja-se reutilizar. Como exemplo, na construção de um somador \textit{carry ripple} de 4 bits, o somador completo precisa ser replicado quatro vezes e ligado em série. A Figura~\ref{fig:somadorCompletoLigado} mostra essa configuração, com as entradas X3, X2, X1, e X0 representando uma parcela da soma, e Y3, Y2, Y1, e Y0 a outra parcela. As saídas S3, S2, S1, e S0 apresentam o resultado da soma, enquanto \texttt{Cout} é o \texttt{carry} de saída, que indica se o total excede o valor representável por quatro bits (``1111''). O \texttt{carry} de entrada é mantido em nível lógico baixo.
 
 \begin{figure}[htbp!]
     \centering
     \includegraphics[width=0.6\textwidth]{./figs/somadorCompleto.png}
     \caption{Ligação em série de somadores completos para formar um somador \textit{Carry ripple} de quatro bits.}
-    \label{fig:somadorCompleto}
+    \label{fig:somadorCompletoLigado}
 \end{figure}
 
 Embora seja possível desenhar o circuito inteiro utilizando apenas portas lógicas, essa abordagem tornaria a visualização e compreensão do design muito complexas. Por isso, o Quartus oferece a opção de criar blocos lógicos, que simplificam o esquemático e podem ser reutilizados em diferentes projetos, facilitando tanto o design quanto a análise do circuito.
 
+Para a criação de um \textbf{bloco somador completo}, verifique se o esquemático do circuito está aberto em primeiro plano no Quartus. Em seguida, siga os passos abaixo:
 
+\begin{enumerate}
+    \item Clique em \texttt{File} $\rightarrow$ \texttt{Create/Update} $\rightarrow$ \texttt{Create Symbol Files for Current File}.
+    \item Salve o arquivo na pasta do projeto com o nome \texttt{"somador\_completo.bsf"} (sem as aspas). 
+\end{enumerate}
 
+A extensão \texttt{.bsf} indica que o arquivo é um \textit{bloco lógico} (\textit{block symbol file}) que pode ser utilizado em outros esquemáticos.
+
+\Attention{Tenha certeza de salvar o esquemático do somador completo com o nome \texttt{"somador\_completo.bsf"} (sem as aspas). Isso é importante para a sequência desse tutorial.}
+
+\section{Reaproveitando o bloco criado}
+
+O \textbf{top level design} é o arquivo principal do projeto e deve conter o circuito \textit{somador de 4 bits} ilustrado na Figura 15. Para criar um novo arquivo esquemático, siga os passos abaixo:
+
+\begin{enumerate}
+    \item Clique em \texttt{File} $\rightarrow$ \texttt{New} e escolha \texttt{Block Diagram/Schematic File}.
+\end{enumerate}
+
+A seguir, vamos acrescentar as entradas e saídas ao esquemático. É interessante notar que algumas entradas podem ser representadas como um \textit{array de bits}, a exemplo das parcelas e do resultado da soma. Proceda da seguinte forma para adicionar as entradas e saídas:
+
+\begin{itemize}
+    \item Acrescente três entradas e duas saídas ao esquemático.
+    \item Nomeie a entrada \texttt{X} como \texttt{X[3..0]}. Ao fazer isso, estamos indicando ao programa que esse terminal é formado por quatro pinos, onde o bit mais significativo (MSB) é \texttt{X[3]} e o bit menos significativo (LSB) é \texttt{X[0]}. Ou seja, o índice ou intervalo de índices do terminal deve ser informado dentro dos colchetes que seguem o nome do terminal.
+    \item Repita o processo para a entrada \texttt{Y} e para a saída \texttt{S}.
+    \item Nomeie a terceira entrada como \texttt{Cin} e a última saída como \texttt{Cout}.
+\end{itemize}
+
+O esquemático resultante deverá ser semelhante à Figura~\ref{fig:carryRipplePins}.
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{./figs/carryRipplePins.png}
+    \caption{Entradas es saídas do somador \textit{Carry Ripple}.}
+    \label{fig:carryRipplePins}
+\end{figure}
 
 \bibliographystyle{IEEEtran} % Define o estilo das referências. Opções comuns: plain, unsrt, alpha, abbrv.
 \bibliography{refs} % O nome do arquivo .bib (sem a extensão).

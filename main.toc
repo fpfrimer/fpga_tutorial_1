@@ -12,3 +12,4 @@
 \contentsline {section}{\numberline {6}Criando um novo projeto}{5}{section.6}%
 \contentsline {section}{\numberline {7}Primeiro esquemático}{7}{section.7}%
 \contentsline {section}{\numberline {8}Criando um bloco lógico}{10}{section.8}%
+\contentsline {section}{\numberline {9}Reaproveitando o bloco criado}{12}{section.9}%
