@@ -1,5 +1,8 @@
 \documentclass[12pt,a4paper]{article}
 
+\setlength{\headheight}{15.08075pt}
+\addtolength{\topmargin}{-2.84344pt}
+
 % Suporte para a língua portuguesa
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -46,6 +49,7 @@
     linkcolor=darkblue,
     filecolor=magenta,      
     urlcolor=cyan,
+    citecolor=darkblue,
 }
 % Permite quebras de linha em URLs em qualquer lugar, melhorando a quebra de linhas longas
 \usepackage{xurl}
@@ -106,6 +110,7 @@
 \begin{document}
 
 \maketitle
+\newpage
 \tableofcontents
 \newpage
 
@@ -138,7 +143,7 @@ O Quartus Prime \cite{QuartusPrimeUserGuide} é uma IDE (\textit{Integrated Deve
 
 Uma IDE é um software que oferece ferramentas para programadores e desenvolvedores, como edição de código, compilação, depuração e, em alguns casos, simulação. A principal função de uma IDE é proporcionar um ambiente que otimize a produtividade, reduzindo a necessidade de alternar entre diferentes aplicações durante o desenvolvimento de software ou hardware. Uma IDE serve como uma plataforma onde desenvolvimento, testes e depuração ocorrem de forma integrada.
 
-No contexto do Quartus Prime, a IDE se especializa no design e implementação de componentes eletrônicos programáveis. Permite aos usuários elaborar esquemáticos, escrever e testar códigos em linguagens de descrição de hardware como VHDL e Verilog, e simular o comportamento de circuitos digitais antes da implementação física. Adicionalmente, o Quartus Prime simplifica a programação dos dispositivos com os designs desenvolvidos, sendo uma ferramenta essencial na engenharia eletrônica e no desenvolvimento de sistemas digitais.
+No contexto do Quartus Prime, a IDE se especializa no design e implementação de componentes eletrônicos programáveis. Permite aos usuários elaborar esquemáticos, escrever e testar códigos em linguagens de descrição de hardware como VHDL e Verilog, e simular o comportamento de circuitos digitais antes da implementação física. Adicionalmente, o Quartus Prime simplifica a programação dos dispositivos com os designs desenvolvidos, sendo uma ferramenta importante na engenharia eletrônica para o desenvolvimento de sistemas digitais.
 
 \section{Somadores \textit{carry ripple}}
 
@@ -156,7 +161,7 @@ Esta metodologia não apenas simplifica o design, mas também permite escalabili
 
 \section{Instalação}
 
-Este guia passo a passo destina-se a auxiliar na instalação do Quartus Prime Lite \Version{} em sistemas operacionais Windows 10 ou 11.
+Essa seção do tutorial destina-se a auxiliar na instalação do Quartus Prime Lite \Version{} em sistemas operacionais Windows 10 ou 11. Caso já possua o Quartus instalado, vá para a seção~\ref{sec:proj}.
 
 \subsection{Download do Software}
 
@@ -197,6 +202,7 @@ Este guia deve ajudar você a instalar e iniciar o Quartus Prime Lite \Version{}
 
 
 \section{Criando um novo projeto}
+\label{sec:proj}
 
 A \autoref{fig:StartSc} ilustra a tela inicial do Quartus Prime Lite \Version.
 
@@ -228,7 +234,7 @@ Um novo projeto pode ser criado clicando em \texttt{New Project Wizard} ou acess
 Ao configurar um novo projeto no Quartus Prime Lite \Version, é essencial prestar atenção aos seguintes campos na tela de configuração do projeto:
 
 \begin{enumerate}
-    \item No primeiro campo, selecione o diretório que armazenará os arquivos do projeto. É recomendável escolher um caminho de diretório (o caminho completo) livre de espaços e caracteres especiais da língua portuguesa, como cedilha (\texttt{\c{c}}) e vogais acentuadas. Para nosso exemplo, o diretório será nomeado como \texttt{somador\_de\_4\_bits}, já que o objetivo é criar um circuito somador.
+    \item No primeiro campo, selecione o diretório que armazenará os arquivos do projeto. É necessário escolher um caminho de diretório (o caminho completo) livre de espaços e caracteres especiais da língua portuguesa, como cedilha (\texttt{\c{c}}) e vogais acentuadas. Para nosso exemplo, o diretório será nomeado como \texttt{somador\_de\_4\_bits}, já que o objetivo é criar um circuito somador.
     
     \item Na interface apresentada na Figura~\ref{fig:Directory}, insira o nome do projeto no segundo campo: \texttt{somador\_de\_4\_bits}. Observe que o terceiro campo é preenchido automaticamente com o mesmo nome do projeto. Este campo refere-se ao nome do arquivo principal do projeto (\textit{top-level design}). Embora seja possível modificar o nome no terceiro campo, evite iniciar o nome do arquivo principal com números, como em \texttt{4\_bit\_adder}. 
 \end{enumerate}
@@ -331,7 +337,7 @@ Acrescente três terminais de entrada e dois de saída. O esquemático deverá f
     \label{fig:pin_names}
 \end{figure}
 
-Para editar os nomes dos terminais de acordo com o projeto, utilize o sobrescrito para representar espaços quando houver. Por exemplo, um terminal nomeado como \texttt{Carry in} deve ser editado para \texttt{Carry\textsuperscript{in}}, pois o programa não aceita espaços para o nome dos terminais. Seu esquemático deverá ficar parecido com o ilustrado na Figura~\ref{fig:pin_names_named}.
+Para editar os nomes dos terminais de acordo com o projeto, utilize o sobrescrito para representar espaços quando houver. Por exemplo, um terminal nomeado como \texttt{Carry in} deve ser editado para \texttt{Carry\_in}, pois o programa não aceita espaços para o nome dos terminais. Seu esquemático deverá ficar parecido com o ilustrado na Figura~\ref{fig:pin_names_named}.
 
 \begin{figure}[htbp!]
     \centering
@@ -486,21 +492,75 @@ Complete o esquemático conforme indicado na Figura~\ref{fig:22}. Observe que um
 
 \section{Análise e Síntese}
 
+A compilação de um projeto no Quartus ou em qualquer outra IDE para PLDs envolve vários passos. No caso do Quartus a primeira etapa é chamada de \textit{Analysis and Synthesis} (Análise e Síntese). As diversas etapas podem ser observadas no quadro \texttt{Tasks} que geralmente fica no canto esquerdo da tela, conforme a Figura~\ref{fig:23}. Para o intuito deste tutorial exploraremos apenas essa primeira etapa.
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=0.4\textwidth]{./figs/fig23.png}
+    \caption{Quadro \texttt{Tasks} do quartus mostrando as etapas de compilação.}
+    \label{fig:23}
+\end{figure}
+
 A análise e síntese no Quartus, representam etapas fundamentais no processo de desenvolvimento de circuitos digitais, especialmente para FPGAs (\textit{Field Programmable Gate Arrays}) e CPLDs (\textit{Complex Programmable Logic Devices}).
 
-Durante a etapa de análise, o Quartus examina o código ou o esquemático submetido para o projeto, que pode estar em VHDL, Verilog, ou como um esquemático gráfico. Esta fase inclui a verificação da sintaxe e da semântica do código ou do esquemático, garantindo que eles estejam isentos de erros e sejam interpretáveis pela ferramenta. A análise assegura a correção do design em relação às regras da linguagem de descrição de hardware utilizada e às especificações do projeto.
+Durante a etapa de \textbf{análise}, o Quartus examina o código ou o esquemático submetido para o projeto, que pode estar em VHDL, Verilog, ou como um esquemático gráfico. Esta fase inclui a verificação da sintaxe e da semântica do código ou do esquemático, garantindo que eles estejam isentos de erros e sejam interpretáveis pela ferramenta. A análise assegura a correção do design em relação às regras da linguagem de descrição de hardware utilizada e às especificações do projeto.
 
-Após a análise, ocorre a síntese, que é o processo de conversão do código ou esquemático de alto nível em uma representação de baixo nível que mapeia diretamente para os recursos físicos do dispositivo alvo, como lógica programável, células lógicas, blocos de memória, entre outros. Durante a síntese, a ferramenta realiza otimizações no design para melhorar o desempenho e a utilização dos recursos, respeitando as restrições definidas pelo usuário (tais como frequência de operação, consumo de energia, tamanho, etc.).
+Após a análise, ocorre a \textbf{síntese}, que é o processo de conversão do código ou esquemático de alto nível em uma representação de baixo nível que mapeia diretamente para os recursos físicos do dispositivo alvo, como lógica programável, células lógicas, blocos de memória, entre outros. Durante a síntese, a ferramenta realiza otimizações no design para melhorar o desempenho e a utilização dos recursos, respeitando as restrições definidas pelo usuário (tais como frequência de operação, consumo de energia, tamanho, etc.).
 
-O resultado da síntese é um \textit{netlist}, descrevendo como os blocos lógicos são interconectados dentro do FPGA ou CPLD. Esse \textit{netlist} é então utilizado nas etapas subsequentes do processo de design, como a colocação e o roteamento, onde a ferramenta determina a localização física dos componentes no dispositivo e como eles serão interconectados fisicamente. O \textit{netlist} também pode ser utilizado para a realização de simulações.
+O resultado da síntese é um \textit{netlist}, que pode ser traduzido como ``lista de interconexões'', descrevendo como os blocos lógicos são interconectados dentro do FPGA ou CPLD. Esse \textit{netlist} é então utilizado nas etapas subsequentes do processo de design, como a colocação e o roteamento (\textit{place and route} ou \textit{fitter}), onde a ferramenta determina a localização física dos componentes no dispositivo e como eles serão interconectados fisicamente. O \textit{netlist} também pode ser utilizado para a realização de simulações.
 
-Com o esquemático concluído, o próximo passo é analisar e sintetizar o circuito para que o programa posso realizar as simulações. O processo de análise verifica se houve algum erro no projeto ou alguma incoerência. Para iniciar a análise e síntese pressione ctrl + K ou clique no botão indicado na Figura 23. Aguarde alguns minutos até a finalização do processo. Se houver algum erro faça as devidas correções e repita o processo.
+Com o esquemático finalizado, a próxima etapa é proceder com a análise e síntese do circuito, permitindo que o programa execute simulações funcionais. O processo de análise tem por objetivo verificar a presença de erros ou incoerências no projeto. Para iniciar a análise e a síntese, pressione \texttt{Ctrl + K}, ou clique no botão correspondente na parte superior da janela do Quartus (\raisebox{-0.25\height}{\includegraphics[height=12pt]{figs/bt_as.png}}) ou dê um duplo clique sobre \texttt{Analysis \& Synthesis} no quadro \texttt{Tasks}. Aguarde alguns minutos para que o processo seja concluído. Caso sejam identificados erros, efetue as correções necessárias e repita o procedimento.
 
-Com o esquemático finalizado, a próxima etapa é proceder com a análise e síntese do circuito, permitindo que o programa execute simulações. O processo de análise tem por objetivo verificar a presença de erros ou incoerências no projeto. Para iniciar a análise e a síntese, pressione \texttt{Ctrl + K} ou clique no botão como indicado na Figura 23. Aguarde alguns minutos para que o processo seja concluído. Caso sejam identificados erros, efetue as correções necessárias e repita o procedimento.
+\section{Simulação funcional}
 
+A \textbf{simulação funcional} é um tipo de simulação utilizada no design de circuitos eletrônicos, especialmente em circuitos digitais e sistemas embarcados, para verificar o comportamento lógico do design. Ela é realizada antes ou durante as fases iniciais do processo de desenvolvimento para garantir que o circuito ou sistema realiza as funções desejadas conforme especificado, sem considerar os aspectos físicos como tempos de atraso, capacidade de carga, ou outras características elétricas do hardware.
 
+No Quartus, clique em \texttt{File $\rightarrow$ New} e escolha a opção \texttt{University Program VWF}. Uma nova janela se abrirá, conforme a Figura~\ref{fig:24}. Observe que o arquivo está vazio e sem possibilidade de configuração; para adicionar os terminais que serão simulados (entradas e saídas do circuito somador de 4 bits), clique em \texttt{Edit $\rightarrow$ Insert $\rightarrow$ Insert Node or Bus...} e uma nova janela se abrirá, conforme ilustrado na Figura~\ref{fig:25}. Nesta nova janela, clique no botão \texttt{Node Finder}, que abrirá a janela da Figura~\ref{fig:26}
 
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{./figs/fig24.png}
+    \caption{Ambiente de simulação do \texttt{University Program VWF}.}
+    \label{fig:24}
+\end{figure}
 
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{./figs/fig25.png}
+    \caption{Janela \texttt{Insert node or bus}.}
+    \label{fig:25}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{./figs/fig26.png}
+    \caption{Janela \texttt{Node finder}.}
+    \label{fig:26}
+\end{figure}
+
+Clique em \texttt{List} e os terminais de entrada e saída do projeto serão exibidos no campo \texttt{Nodes Found}. Clique no botão com o símbolo ``\texttt{>>}'' para selecionar todos os terminais criados no projeto. Clique em \texttt{OK} e, novamente, em \texttt{OK}. O ambiente de simulação ficará similar ao apresentado na Figura~\ref{fig:27}.
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{./figs/fig27.png}
+    \caption{Ambiente de simulação do \texttt{University Program VWF} com as entradas e saídas inseridas e prontas para edição.}
+    \label{fig:27}
+\end{figure}
+
+No canto direito do ambiente de simulação, conforme visto na Figura~\ref{fig:27}, encontram-se as formas de onda que podem ser editadas. É importante enfatizar que somente as formas de onda de terminais classificados como de entrada e bidirecionais estão sujeitas à edição. As ferramentas para edição das formas de onda digitais localizam-se no canto superior esquerdo. 
+
+A manipulação das formas de onda de entrada é intuitiva. Para editar, selecione com o mouse (clicando e arrastando) a faixa de tempo desejada em um dos terminais de entrada e empregue uma das ferramentas disponíveis para modificar os valores lógicos dos sinais. Por exemplo, caso seja necessário inserir o valor binário ``1100'' em \texttt{X}, no intervalo de tempo de 0 a 300 ns, deve-se selecionar o intervalo de tempo correspondente para a entrada \texttt{X}. Após a seleção, clica-se no botão com o símbolo de interrogação para forçar a entrada de um valor arbitrário. Consequentemente, uma janela será aberta permitindo a inserção do valor desejado.
+
+Proceda com a edição das formas de onda de \texttt{X}, \texttt{Y}, e \texttt{Cin} de maneira a testar exaustivamente o circuito. Confira se a operação de soma está sendo executada corretamente. Este momento também é oportuno para explorar as funcionalidades de cada ferramenta de edição. Para iniciar a simulação, clique no botão indicado na Figura~\ref{fig:27} (\texttt{Run Functional Simulation}), é possível que seja solicitado que o arquivo de simulação seja salvo.
+
+A Figura 28 ilustra o resultado de uma simulação para o circuito somador de 4 bits. Importante ressaltar que a simulação funcional considera apenas o uso de componentes ideais, desconsiderando, portanto, quaisquer tempos de atraso. Uma simulação que incorpora a análise de tempos de atraso é denominada simulação temporal e será abordada em outro tutorial.
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{./figs/fig28.png}
+    \caption{Exemplo de resultado de simulação para o somador de 4 bits.}
+    \label{fig:28}
+\end{figure}
 
 \newpage
 \bibliographystyle{IEEEtran} % Define o estilo das referências. Opções comuns: plain, unsrt, alpha, abbrv.

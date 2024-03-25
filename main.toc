@@ -1,18 +1,17 @@
 \babel@toc {brazil}{}\relax 
-\contentsline {section}{\numberline {1}Introdução}{2}{section.1}%
-\contentsline {section}{\numberline {2}Objetivo do Tutorial}{2}{section.2}%
-\contentsline {section}{\numberline {3}Conceitos importantes}{2}{section.3}%
-\contentsline {subsection}{\numberline {3.1}O que é Simulação Funcional?}{2}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}O Quartus Prime}{2}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Somadores \textit {carry ripple}}{3}{section.4}%
-\contentsline {section}{\numberline {5}Instalação}{3}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Download do Software}{4}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Instalação do Software}{4}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Inicialização do Programa}{4}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Criando um novo projeto}{5}{section.6}%
-\contentsline {section}{\numberline {7}Primeiro esquemático}{7}{section.7}%
-\contentsline {section}{\numberline {8}Criando um bloco lógico}{10}{section.8}%
-\contentsline {section}{\numberline {9}Reaproveitando o bloco criado}{12}{section.9}%
-\contentsline {section}{\numberline {10}Análise e Síntese}{16}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Análise}{16}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Síntese}{16}{subsection.10.2}%
+\contentsline {section}{\numberline {1}Introdução}{3}{section.1}%
+\contentsline {section}{\numberline {2}Objetivo do Tutorial}{3}{section.2}%
+\contentsline {section}{\numberline {3}Conceitos importantes}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}O que é Simulação Funcional?}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}O Quartus Prime}{3}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Somadores \textit {carry ripple}}{4}{section.4}%
+\contentsline {section}{\numberline {5}Instalação}{4}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Download do Software}{5}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Instalação do Software}{5}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Inicialização do Programa}{5}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Criando um novo projeto}{6}{section.6}%
+\contentsline {section}{\numberline {7}Primeiro esquemático}{8}{section.7}%
+\contentsline {section}{\numberline {8}Criando um bloco lógico}{11}{section.8}%
+\contentsline {section}{\numberline {9}Reaproveitando o bloco criado}{13}{section.9}%
+\contentsline {section}{\numberline {10}Análise e Síntese}{17}{section.10}%
+\contentsline {section}{\numberline {11}Simulação funcional}{18}{section.11}%
