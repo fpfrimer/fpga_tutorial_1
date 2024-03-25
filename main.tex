@@ -430,6 +430,79 @@ O esquemático resultante deverá ser semelhante à Figura~\ref{fig:carryRippleP
     \label{fig:carryRipplePins}
 \end{figure}
 
+Para inserir os \textbf{blocos dos somadores completos}, selecione a ferramenta \textbf{Symbol tool} (\raisebox{-0.25\height}{\includegraphics[height=12pt]{figs/symb.png}}), procedendo da mesma forma empregada na elaboração do esquemático do somador completo. A ação subsequente desencadeará a exibição da janela de seleção de dispositivos, conforme ilustrado na Figura~\ref{fig:symbolSomador}.
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{./figs/symbolSomador.png}
+    \caption{\textbf{Symbol tool} com o somador completo disponível.}
+    \label{fig:symbolSomador}
+\end{figure}
+
+Nesta etapa, observa-se a disponibilização de uma nova pasta no campo \texttt{Lybraries}, denominada ``\texttt{Project}'', que incorpora todos os blocos desenvolvidos ao longo do projeto. Nota-se que o único componente disponível é o \texttt{somador\_completo}. Proceda com a inserção de quatro instancias do somador completo no esquemático, conforme demonstrado na Figura~\ref{fig:18}.
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{./figs/fig18.png}
+    \caption{Posicionamento de quatro instancias do \texttt{somador\_completo}.}
+    \label{fig:18}
+\end{figure}
+
+Neste exemplo, optamos por designar que o bloco mais à direita somará os LSBs de \texttt{X} e \texttt{Y}, gerando o LSB da soma. As entradas \texttt{X} e \texttt{Y} são conjuntos de bits (4 bits cada um), e ao tentar desenhar uma linha partindo de uma dessas entradas, notamos a formação de uma linha mais espessa, indicando que se trata de um barramento de bits (para o caso em análise, um barramento de 4 bits). Portanto, é necessário derivar os bits correspondentes para conectá-los às entradas apropriadas nos somadores completos. Para isso, trace um barramento saindo do terminal de \texttt{X} até que este barramento abranja todos os somadores, conforme ilustrado na Figura \ref{fig:19}.
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{./figs/fig19.png}
+    \caption{Traçando um barramento a partir da entrada \texttt{X} que possui 4 bits.}
+    \label{fig:19}
+\end{figure}
+
+Em seguida, conecte as entradas \texttt{A} de cada \texttt{somador\_completo} ao barramento. Para isso, posicione o mouse no terminal \texttt{A} e, ao visualizar o símbolo do alvo, clique, segure e arraste-o até o barramento. Após realizar a conexão nas quatro instancias, clique com o botão direito do mouse sobre o fio do LSB e selecione ``\texttt{properties}''. No campo \texttt{name} da aba \texttt{general}, digite: \texttt{X[0]}, e clique em \texttt{OK}. Esta ação designa que a conexão corresponde ao bit menos significativo de \texttt{X}. Repita o procedimento para as outras três conexões, e o esquemático apresentará semelhanças com a Figura~\ref{fig:20}. Execute o mesmo processo para a entrada \texttt{Y} e para a saída \texttt{S}, conforme ilustrado na Figura 21.
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{./figs/fig20.png}
+    \caption{Ligando o barramento \texttt{X} às respectivas entradas das instancias do \texttt{somador\_completo}.}
+    \label{fig:20}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{./figs/fig21.png}
+    \caption{Ligando os barramentos \texttt{X}, \texttt{Y} e \texttt{S} às respectivas entradas e saídas das instancias do \texttt{somador\_completo}.}
+    \label{fig:21}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{./figs/fig22.png}
+    \caption{Esquemático do \texttt{somador\_de\_4\_bits} finalizado.}
+    \label{fig:22}
+\end{figure}
+
+Complete o esquemático conforme indicado na Figura~\ref{fig:22}. Observe que uma nova entrada denominada \texttt{Cin} foi vinculada ao carry de entrada do somador que processa os LSBs. Salve o diagrama com o nome \texttt{somador\_de\_4\_bits.bdf}, que corresponde ao nome do design de nível superior (\textit{top-level design}) estabelecido no início do projeto. Se o esquemático for salvo com um nome diferente, ocorrerão erros durante a análise do projeto.
+
+\Attention{Salve o diagrama com o nome \texttt{somador\_de\_4\_bits.bdf}, que corresponde ao nome do design de nível superior (\textit{top-level design}) estabelecido no início do projeto. Se o esquemático for salvo com um nome diferente, ocorrerão erros durante a análise do projeto.}
+
+\section{Análise e Síntese}
+
+A análise e síntese no Quartus, representam etapas fundamentais no processo de desenvolvimento de circuitos digitais, especialmente para FPGAs (\textit{Field Programmable Gate Arrays}) e CPLDs (\textit{Complex Programmable Logic Devices}).
+
+Durante a etapa de análise, o Quartus examina o código ou o esquemático submetido para o projeto, que pode estar em VHDL, Verilog, ou como um esquemático gráfico. Esta fase inclui a verificação da sintaxe e da semântica do código ou do esquemático, garantindo que eles estejam isentos de erros e sejam interpretáveis pela ferramenta. A análise assegura a correção do design em relação às regras da linguagem de descrição de hardware utilizada e às especificações do projeto.
+
+Após a análise, ocorre a síntese, que é o processo de conversão do código ou esquemático de alto nível em uma representação de baixo nível que mapeia diretamente para os recursos físicos do dispositivo alvo, como lógica programável, células lógicas, blocos de memória, entre outros. Durante a síntese, a ferramenta realiza otimizações no design para melhorar o desempenho e a utilização dos recursos, respeitando as restrições definidas pelo usuário (tais como frequência de operação, consumo de energia, tamanho, etc.).
+
+O resultado da síntese é um \textit{netlist}, descrevendo como os blocos lógicos são interconectados dentro do FPGA ou CPLD. Esse \textit{netlist} é então utilizado nas etapas subsequentes do processo de design, como a colocação e o roteamento, onde a ferramenta determina a localização física dos componentes no dispositivo e como eles serão interconectados fisicamente. O \textit{netlist} também pode ser utilizado para a realização de simulações.
+
+Com o esquemático concluído, o próximo passo é analisar e sintetizar o circuito para que o programa posso realizar as simulações. O processo de análise verifica se houve algum erro no projeto ou alguma incoerência. Para iniciar a análise e síntese pressione ctrl + K ou clique no botão indicado na Figura 23. Aguarde alguns minutos até a finalização do processo. Se houver algum erro faça as devidas correções e repita o processo.
+
+Com o esquemático finalizado, a próxima etapa é proceder com a análise e síntese do circuito, permitindo que o programa execute simulações. O processo de análise tem por objetivo verificar a presença de erros ou incoerências no projeto. Para iniciar a análise e a síntese, pressione \texttt{Ctrl + K} ou clique no botão como indicado na Figura 23. Aguarde alguns minutos para que o processo seja concluído. Caso sejam identificados erros, efetue as correções necessárias e repita o procedimento.
+
+
+
+
+
+\newpage
 \bibliographystyle{IEEEtran} % Define o estilo das referências. Opções comuns: plain, unsrt, alpha, abbrv.
 \bibliography{refs} % O nome do arquivo .bib (sem a extensão).
 

@@ -7,7 +7,8 @@
 \providecommand{\BIBentrySTDinterwordspacing}{\spaceskip=0pt\relax}
 \providecommand{\BIBentryALTinterwordstretchfactor}{4}
 \providecommand{\BIBentryALTinterwordspacing}{\spaceskip=\fontdimen2\font plus
-\BIBentryALTinterwordstretchfactor\fontdimen3\font minus \fontdimen4\font\relax}
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
+  \fontdimen4\font\relax}
 \providecommand{\BIBforeignlanguage}[2]{{%
 \expandafter\ifx\csname l@#1\endcsname\relax
 \typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
@@ -22,16 +23,27 @@
 
 \bibitem{QuartusPrimeUserGuide}
 \BIBentryALTinterwordspacing
-{Intel Corporation}, \emph{Intel\textsuperscript{\textregistered} Quartus\textsuperscript{\textregistered} Prime Software User Guides}, 2023, acessado em 15 de março de 2024. [Online]. Available: \url{https://www.intel.com/content/www/us/en/support/programmable/support-resources/design-software/user-guides.html}
+{Intel Corporation}, \emph{Intel\textsuperscript{\textregistered}
+  Quartus\textsuperscript{\textregistered} Prime Software User Guides}, 2023,
+  acessado em 15 de março de 2024. [Online]. Available:
+  \url{https://www.intel.com/content/www/us/en/support/programmable/support-resources/design-software/user-guides.html}
 \BIBentrySTDinterwordspacing
 
 \bibitem{YouTube2020luiz}
-{Luis Meira}, ``{Aula 5 Parte 10 Circuito Somador 1 4 e 8 bits},'' \url{https://www.youtube.com/watch?v=eiFXNVBd8LQ}, 2020, acessado em 20 de março de 2024.
+{Luis Meira}, ``{Aula 5 Parte 10 Circuito Somador 1 4 e 8 bits},''
+  \url{https://www.youtube.com/watch?v=eiFXNVBd8LQ}, 2020, acessado em 20 de
+  março de 2024.
 
 \bibitem{Tocci2007SistemasDigitais}
-R.~J. Tocci, N.~S. Widmer, and G.~L. Moss, \emph{\BIBforeignlanguage{Portuguese}{Sistemas Digitais: Princípios e Aplicações}}, 11th~ed.\hskip 1em plus 0.5em minus 0.4em\relax São Paulo: Editora Pearson, 2007.
+R.~J. Tocci, N.~S. Widmer, and G.~L. Moss,
+  \emph{\BIBforeignlanguage{Portuguese}{Sistemas Digitais: Princípios e
+  Aplicações}}, 11th~ed.\hskip 1em plus 0.5em minus 0.4em\relax São Paulo:
+  Editora Pearson, 2007.
 
 \bibitem{YouTube2021descomplica}
-{DesCOMPlica, Oliba!}, ``{Circuito Somador Completo \(Full Adder\) em Detalhes - Soma de Inteiros Positivos com Vários Bits},'' \url{https://www.youtube.com/watch?v=486Rhht8_8U}, 2021, acessado em 20 de março de 2024.
+{DesCOMPlica, Oliba!}, ``{Circuito Somador Completo \(Full Adder\) em Detalhes
+  - Soma de Inteiros Positivos com Vários Bits},''
+  \url{https://www.youtube.com/watch?v=486Rhht8_8U}, 2021, acessado em 20 de
+  março de 2024.
 
 \end{thebibliography}
